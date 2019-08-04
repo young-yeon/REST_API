@@ -25,7 +25,7 @@ class Cloud:
     
 
     def make_cloud(self, title = "results/result"):
-        wc = WordCloud(font_path='BMHANNA_11yrs_ttf.ttf', \
+        wc = WordCloud(font_path='cloud/WordCloud/BMHANNA_11yrs_ttf.ttf', \
             background_color='white', width=800, height=600)
         cloud = wc.generate_from_frequencies(self.count())
         plt.figure(figsize=(10, 8))
