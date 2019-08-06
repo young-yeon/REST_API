@@ -14,7 +14,6 @@ API url : http://35.221.123.234/cloud/
 INPUT (POST Only)
 <pre><code>{
     "title" : "파일 제목",
-    "count" : 50,
     "text" : "내용"
 }
 </code></pre>
