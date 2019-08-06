@@ -9,7 +9,7 @@ API 목록
 워드클라우드 생성
 --
 
-API url : http://35.221.123.234/cloud/
+API url : http://cachi.ga/cloud/
 
 INPUT (POST Only)
 <pre><code>{
@@ -20,7 +20,7 @@ INPUT (POST Only)
 
 OUTPUT
 <pre><code>{
-    "url": "http://35.221.123.234/images/파일 제목.png",
+    "url": "http://cachi.ga/images/파일 제목.png",
     "length": 2,
     "target": "내용"
 }
@@ -30,7 +30,7 @@ OUTPUT
 감성 분석
 --
 
-API url : http://35.221.123.234/emotion/
+API url : http://cachi.ga/emotion/
 
 INPUT (POST Only)
 <pre><code>{
