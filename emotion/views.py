@@ -16,7 +16,10 @@ def get_result(text):
 
 class EmoView(APIView):
     def post(self, request, *args, **kwargs):
-        target = request.data.get('text')
-        length = len(target)
-        value = get_result(target)
-        return Response(data={'length':length,'target':target,'value':value})
+        try:
+            target = request.data.get('text').replace('\n','')
+            length = len(target)
+            value = get_result(target)
+            return Response(data={'length':length,'target':target,'value':value})
+        except:
+            return Response(data={'length':0,'target':'ERROR','value':0})

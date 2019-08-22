@@ -8,15 +8,26 @@ from .WordCloud.MakeCloud import Cloud
 
 def make_cloud(title, text, cnt):
     Class = Cloud(cnt=cnt)
-    Class.add_data(text)
-    Class.make_cloud(title=title)
+    try:
+        Class.add_data(text)
+        Class.make_cloud(title=title)
+    except:
+        Class.add_all_data(text)
+        Class.make_cloud(title=title)
+    del Class
+
 
 
 class CloudView(APIView):
     def post(self, request, *args, **kwargs):
-        target = request.data.get('text')
-        length = len(target)
-        title = request.data.get('title')
-        cnt = request.data.get('count')
+        try:
+            target = request.data.get('text').replace('\n','')
+            length = len(target)
+            title = request.data.get('title')
+            cnt = 50
+        except:
+            return Response(data={'length':0,'target':'ERROR','url':'NO~'})
         make_cloud(title, target, cnt)
-        return Response(data={'length':length,'target':target})
+        url = 'http://cachi.ga/images/' + title + '.png'
+        return Response(data={'length':length,'target':target, 'url':url})
+
